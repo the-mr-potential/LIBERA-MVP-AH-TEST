@@ -1,609 +1,155 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LIBERA</title>
-
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Libera</title>
 <style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    background: #101010;
-    color: white;
-    font-family: Arial, sans-serif;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-.phone {
-    width: 100%;
-    max-width: 390px;
-    height: 760px;
-    max-height: 90vh;
-    min-height: 550px;
-    border: 9px solid #80bddb;
-    border-radius: 45px;
-    padding: 9px;
-    background: #111;
-    box-shadow: 0 0 0 2px #d0eafa;
-}
-
-.phone-inner {
-    height: 100%;
-    background: #191919;
-    border-radius: 30px;
-    padding: 30px 20px;
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-}
-
-.logo {
-    text-align: center;
-    font-size: 23px;
-    letter-spacing: 3px;
-    margin-bottom: 55px;
-}
-
-.screen {
-    display: none;
-    flex-direction: column;
-    flex: 1;
-    min-height: 0;
-}
-
-.screen.active {
-    display: flex;
-}
-
-button {
-    cursor: pointer;
-    font-family: Arial, sans-serif;
-}
-
-.category-btn {
-    background: #0083b5;
-    color: white;
-    border: 1px solid #9bd3e9;
-    border-radius: 5px;
-    padding: 12px;
-    width: 100%;
-    margin-bottom: auto;
-}
-
-.question-label {
-    text-align: center;
-    margin-bottom: 15px;
-    font-size: 15px;
-}
-
-textarea {
-    background: black;
-    border: 2px solid #9bd3e9;
-    border-radius: 6px;
-    padding: 12px;
-    color: white;
-    width: 100%;
-    height: 100px;
-    resize: none;
-    font-family: Arial;
-    font-size: 14px;
-}
-
-.ask-row {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 12px;
-}
-
-.ask-btn {
-    background: #005c19;
-    color: white;
-    border: 2px solid #a4e3b2;
-    border-radius: 6px;
-    padding: 9px 24px;
-}
-
-.section-title {
-    font-size: 17px;
-    margin-bottom: 25px;
-}
-
-.original-question {
-    color: #ccc;
-    font-size: 13px;
-    line-height: 1.5;
-    margin-bottom: 25px;
-}
-
-.results {
-    flex: 1;
-    overflow-y: auto;
-}
-
-.resource-card {
-    border-bottom: 1px solid #444;
-    padding-bottom: 18px;
-    margin-bottom: 20px;
-}
-
-.resource-name {
-    font-weight: bold;
-    font-size: 14px;
-    margin-bottom: 9px;
-}
-
-.resource-description {
-    font-size: 12px;
-    color: #ccc;
-    line-height: 1.5;
-    margin-bottom: 10px;
-}
-
-.view-link {
-    color: #8bc8e5;
-    text-decoration: underline;
-    font-size: 12px;
-    cursor: pointer;
-}
-
-.back-btn {
-    background: black;
-    color: white;
-    border: 2px solid #9bd3e9;
-    border-radius: 6px;
-    padding: 12px;
-    width: 100%;
-    margin-top: 20px;
-}
-
-.details {
-    font-size: 13px;
-    line-height: 1.8;
-}
-
-.details ul {
-    padding-left: 20px;
-    margin-top: 12px;
-}
-
-.official-link {
-    display: block;
-    width: fit-content;
-    margin: 20px auto 8px;
-    background: #0083b5;
-    color: white;
-    border: 1px solid #9bd3e9;
-    border-radius: 6px;
-    padding: 10px 22px;
-    text-decoration: none;
-    font-size: 12px;
-}
-
-.link-caption {
-    text-align: center;
-    color: #aaa;
-    font-size: 11px;
-}
-
-.category-menu {
-    display: none;
-    background: #252525;
-    border: 1px solid #80bddb;
-    border-radius: 6px;
-    margin-top: 10px;
-}
-
-.category-menu button {
-    width: 100%;
-    padding: 12px;
-    background: transparent;
-    color: white;
-    border: none;
-    text-align: left;
-}
-
-.category-menu button:hover {
-    background: #444;
-}
-
-.empty {
-    font-size: 13px;
-    color: #ccc;
-}
-
-@media(max-height: 650px) {
-    .phone {
-        height: 95vh;
-    }
-
-    .logo {
-        margin-bottom: 25px;
-    }
-}
+  * { box-sizing: border-box; }
+  body { margin: 0; min-height: 100vh; background: #000; display: flex; align-items: center; justify-content: center; font-family: Calibri, "Segoe UI", Arial, sans-serif; color: #fff; padding: 16px; }
+  .phone { width: 340px; height: 640px; background: #1e1e1e; border: 12px solid #a9c8e8; border-radius: 40px; box-shadow: 0 0 0 3px #6d9ccf; padding: 24px 20px; display: flex; flex-direction: column; overflow-y: auto; }
+  h1 { font-size: 22px; font-weight: 400; letter-spacing: 1px; text-align: center; margin: 0 0 16px; }
+  button { font: inherit; color: #fff; cursor: pointer; border-radius: 6px; }
+  .btn { background: #000; border: 2px solid #fff; padding: 8px 12px; width: 100%; }
+  .blue { background: #2e6db0; border: 2px solid #a9c8e8; padding: 6px; width: 100%; font-size: 14px; }
+  .green { background: #1d4d1d; border: 2px solid #8fd18f; padding: 6px 20px; }
+  .light { background: #a9c8e8; color: #000; border: 2px solid #6d9ccf; padding: 6px 14px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .chip { background: #2b2b2b; border: 1px solid #a9c8e8; padding: 4px 10px; font-size: 13px; }
+  input { width: 100%; background: #000; color: #fff; border: 2px solid #fff; border-radius: 6px; padding: 8px 12px; font: inherit; text-align: center; }
+  label { display: block; text-align: center; margin: 32px 0 10px; font-size: 16px; }
+  .card { margin-top: 18px; font-size: 14px; }
+  .card ul, .detail ul { margin: 4px 0 0; padding-left: 18px; }
+  .card button { background: none; border: none; color: #a9c8e8; text-decoration: underline; padding: 0; font-size: 14px; border-radius: 0; }
+  .q { text-align: center; font-size: 14px; margin: 0 0 6px; }
+  .bottom { margin-top: auto; padding-top: 20px; }
+  .detail { font-size: 14px; }
+  .muted { font-size: 13px; text-align: center; color: #ccc; }
 </style>
 </head>
-
 <body>
+<div id="root"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.26.4/babel.min.js"></script>
+<script type="text/babel">
+const { useState } = React;
 
-<div class="phone">
-<div class="phone-inner">
-
-    <div class="logo">LIBERA</div>
-
-    <!-- HOME PAGE -->
-    <section id="home" class="screen active">
-
-        <button class="category-btn" onclick="toggleCategories()">
-            Browse by Category
-        </button>
-
-        <div class="category-menu" id="categories">
-            <button onclick="categorySearch('Tutoring')">Tutoring</button>
-            <button onclick="categorySearch('Technology')">Technology</button>
-            <button onclick="categorySearch('Financial Aid')">Financial Aid</button>
-            <button onclick="categorySearch('Academic Support')">Academic Support</button>
-            <button onclick="categorySearch('Career Services')">Career Services</button>
-        </div>
-
-        <div class="question-label">
-            What do you need help with?
-        </div>
-
-        <textarea id="question"
-            placeholder="Enter your question..."></textarea>
-
-        <div class="ask-row">
-            <button class="ask-btn" onclick="searchResources()">
-                Ask
-            </button>
-        </div>
-
-    </section>
-
-
-    <!-- SEARCH RESULTS -->
-    <section id="results-screen" class="screen">
-
-        <div class="section-title">Search Results</div>
-
-        <div class="original-question" id="original-question">
-            Original question will appear here.
-        </div>
-
-        <div class="results" id="results-list"></div>
-
-        <button class="back-btn" onclick="showScreen('home')">
-            Back to Home
-        </button>
-
-    </section>
-
-
-    <!-- RESOURCE DETAILS -->
-    <section id="details-screen" class="screen">
-
-        <div class="section-title">Resource Details</div>
-
-        <div class="details" id="resource-details"></div>
-
-        <button class="back-btn" onclick="showScreen('results-screen')">
-            Back to Results
-        </button>
-
-    </section>
-
-</div>
-</div>
-
-
-<script>
-
-// Sample university resources
-
-const resources = [
-{
-    name: "Math Tutoring",
-    description: "Get assistance with mathematics courses and homework.",
-    category: "Tutoring",
-    location: "Durham Science Center, Room 113",
-    availability: "Monday-Friday, 9 AM - 5 PM",
-    instructions: "Visit the tutoring center or schedule an appointment.",
-    url: "https://www.unomaha.edu/"
-},
-{
-    name: "Writing Center",
-    description: "Help with essays, research papers, and writing assignments.",
-    category: "Academic Support",
-    location: "Arts and Sciences Hall",
-    availability: "Monday-Friday, by appointment",
-    instructions: "Schedule a writing consultation.",
-    url: "https://www.unomaha.edu/"
-},
-{
-    name: "IT Help Desk",
-    description: "Technical support for university accounts and devices.",
-    category: "Technology",
-    location: "University Campus",
-    availability: "University business hours",
-    instructions: "Submit a technical support request.",
-    url: "https://www.unomaha.edu/"
-},
-{
-    name: "Financial Aid Office",
-    description: "Help with FAFSA, scholarships, grants, and financial aid.",
-    category: "Financial Aid",
-    location: "Eppley Administration Building",
-    availability: "Monday-Friday, business hours",
-    instructions: "Contact the Financial Aid Office.",
-    url: "https://www.unomaha.edu/"
-},
-{
-    name: "Career Services",
-    description: "Resume reviews, career guidance, and interview preparation.",
-    category: "Career Services",
-    location: "Milo Bail Student Center",
-    availability: "Monday-Friday, by appointment",
-    instructions: "Schedule an appointment with a career advisor.",
-    url: "https://www.unomaha.edu/"
-}
+// Demo data — swap for a real API later.
+const RESOURCES = [
+  { name: "Math Tutoring Center", category: "Tutoring", keywords: ["math", "calculus", "algebra", "tutor", "tutoring", "homework", "stats"],
+    short: "Free drop-in tutoring for math courses.",
+    description: "Peer and staff tutors help with algebra, calculus, statistics and more.",
+    locations: ["Library, Room 210", "Science Hall, Room 105"],
+    access: "Walk in during open hours (Mon–Thu 10am–6pm). Bring your student ID and course materials.",
+    link: "https://example.edu/tutoring" },
+  { name: "Writing Center", category: "Tutoring", keywords: ["writing", "essay", "paper", "english", "tutor", "tutoring"],
+    short: "One-on-one help with essays and papers.",
+    description: "Consultants help with brainstorming, drafting, citations and revision.",
+    locations: ["Humanities Bldg, Room 120"],
+    access: "Book a 30-minute appointment online or walk in if a consultant is free.",
+    link: "https://example.edu/writing" },
+  { name: "IT Help Desk", category: "IT Help", keywords: ["wifi", "password", "login", "computer", "laptop", "email", "it", "canvas", "printer", "printing"],
+    short: "Help with Wi-Fi, passwords, email and devices.",
+    description: "Technicians troubleshoot account access, campus Wi-Fi, software and hardware.",
+    locations: ["Tech Center, Room 001", "Library, 1st floor kiosk"],
+    access: "Submit a ticket online, call ext. 4357, or visit in person with your student ID.",
+    link: "https://example.edu/it" },
+  { name: "Counseling Services", category: "Counseling", keywords: ["stress", "anxiety", "counseling", "counselor", "therapy", "depressed", "sad", "mental", "health", "overwhelmed"],
+    short: "Free, confidential counseling for students.",
+    description: "Licensed counselors offer individual sessions, groups and crisis support.",
+    locations: ["Student Wellness Center, 2nd floor"],
+    access: "Call or schedule online for an intake appointment. Same-day crisis visits available.",
+    link: "https://example.edu/counseling" },
+  { name: "Financial Aid Office", category: "Financial Aid", keywords: ["money", "financial", "aid", "fafsa", "scholarship", "loan", "tuition", "grant"],
+    short: "Questions about FAFSA, loans and scholarships.",
+    description: "Advisors help with aid packages, FAFSA, scholarships and payment plans.",
+    locations: ["Administration Bldg, Room 140"],
+    access: "Log in to the student portal to message an advisor, or visit during walk-in hours.",
+    link: "https://example.edu/finaid" },
+  { name: "Career Center", category: "Career", keywords: ["job", "internship", "resume", "career", "interview", "work"],
+    short: "Resume reviews, internships and job search help.",
+    description: "Career coaches help with resumes, mock interviews and finding internships.",
+    locations: ["Student Union, Room 300"],
+    access: "Book an appointment through the career portal. Resume drop-ins Fridays 1–4pm.",
+    link: "https://example.edu/careers" },
 ];
+const CATEGORIES = [...new Set(RESOURCES.map(r => r.category))];
 
-let currentResults = [];
-let previousQuestion = "";
+// shortcut: whole-word keyword match only, swap for real search when there's a backend
+const search = q => {
+  const words = q.toLowerCase().match(/[a-z]+/g) || [];
+  return RESOURCES.filter(r => words.some(w => r.keywords.includes(w)));
+};
 
+function App() {
+  const [screen, setScreen] = useState("home");
+  const [showCats, setShowCats] = useState(true);
+  const [prompt, setPrompt] = useState("");
+  const [query, setQuery] = useState("");
+  const [results, setResults] = useState([]);
+  const [selected, setSelected] = useState(null);
 
-// Switch between screens
+  const ask = e => {
+    e.preventDefault();
+    if (!prompt.trim()) return;
+    setQuery(prompt); setResults(search(prompt)); setScreen("results");
+  };
+  const browse = cat => {
+    setQuery(`Category: ${cat}`); setResults(RESOURCES.filter(r => r.category === cat)); setScreen("results");
+  };
 
-function showScreen(screenId) {
+  return (
+    <div className="phone">
+      <h1>LIBERA</h1>
 
-    document.querySelectorAll(".screen").forEach(screen => {
-        screen.classList.remove("active");
-    });
+      {screen === "home" && <>
+        <button className="blue" onClick={() => setShowCats(!showCats)}>Browse by Category</button>
+        {showCats && <div className="chips">
+          {CATEGORIES.map(c => <button key={c} className="chip" onClick={() => browse(c)}>{c}</button>)}
+        </div>}
+        <form onSubmit={ask}>
+          <label htmlFor="prompt">What do you need help with?</label>
+          <input id="prompt" value={prompt} onChange={e => setPrompt(e.target.value)} placeholder="Prompt Box" />
+          <div style={{ textAlign: "right", marginTop: 10 }}><button className="green" type="submit">Ask</button></div>
+        </form>
+      </>}
 
-    document.getElementById(screenId).classList.add("active");
+      {screen === "results" && <>
+        <p className="q">“{query}”</p>
+        {results.length === 0 && <p className="card" style={{ textAlign: "center" }}>No results</p>}
+        {results.map(r => (
+          <div className="card" key={r.name}>
+            <strong>{r.name}</strong>
+            <ul>
+              <li>{r.short}</li>
+              <li><button onClick={() => { setSelected(r); setScreen("details"); }}>View details</button></li>
+            </ul>
+          </div>
+        ))}
+        <div className="bottom"><button className="btn" onClick={() => setScreen("home")}>Back to Home</button></div>
+      </>}
 
-}
-
-
-// Browse categories
-
-function toggleCategories() {
-
-    const menu = document.getElementById("categories");
-
-    menu.style.display =
-        menu.style.display === "block" ? "none" : "block";
-
-}
-
-
-// Select category
-
-function categorySearch(category) {
-
-    document.getElementById("question").value =
-        "I need help with " + category;
-
-    searchResources();
-
-}
-
-// Clickable links
-
-function displayAnswer(element, answer) {
-    element.replaceChildren();
-
-    const urlPattern = /https?:\/\/[^\s<>"\]]+/g;
-    let position = 0;
-
-    for (const match of answer.matchAll(urlPattern)) {
-        const url = match[0].replace(/[.,;!?)]+$/, "");
-
-        element.appendChild(
-            document.createTextNode(
-                answer.slice(position, match.index)
-            )
-        );
-
-        const link = document.createElement("a");
-        link.href = url;
-        link.textContent = url;
-        link.target = "_blank";
-        link.rel = "noopener noreferrer";
-        link.style.color = "#8bc8e5";
-        link.style.textDecoration = "underline";
-
-        element.appendChild(link);
-        position = match.index + url.length;
-    }
-
-    element.appendChild(
-        document.createTextNode(answer.slice(position))
-    );
-}
-
-// Search resources
-
-async function searchResources() {
-    const question =
-        document.getElementById("question").value.trim();
-
-    if (!question) {
-        alert("Please enter a question.");
-        return;
-    }
-
-    previousQuestion = question;
-
-    const words = question.toLowerCase().split(/\s+/);
-
-    currentResults = resources.filter(resource => {
-        const content = (
-            resource.name + " " +
-            resource.description + " " +
-            resource.category
-        ).toLowerCase();
-
-        return words.some(word =>
-            word.length > 2 && content.includes(word)
-        );
-    });
-
-    const questionElement =
-        document.getElementById("original-question");
-
-    questionElement.textContent = '"' + question + '"';
-
-    document.getElementById("results-list").replaceChildren();
-    document.getElementById("results-list").style.display = "none";
-
-    let answerElement = document.getElementById("ai-answer");
-
-    if (!answerElement) {
-        answerElement = document.createElement("div");
-        answerElement.id = "ai-answer";
-        answerElement.style.whiteSpace = "pre-wrap";
-        answerElement.style.margin = "16px 0";
-    }
-
-    questionElement.insertAdjacentElement(
-        "afterend", answerElement
-    );
-
-    answerElement.textContent = "LIBERA is finding an answer…";
-
-    document.getElementById("categories").style.display = "none";
-    showScreen("results-screen");
-
-    try {
-        const response = await fetch("/ask", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ question: question })
-        });
-
-        if (!response.ok) {
-            throw new Error("Request failed");
-        }
-
-        const data = await response.json();
-
-        if (previousQuestion === question) {
-            displayAnswer(answerElement, data.answer);
-        }
-    } catch (error) {
-        if (previousQuestion === question) {
-            answerElement.textContent =
-                "LIBERA could not get an answer. Please try again.";
-        }
-    }
-}
-
-
-// Display search results
-
-function renderResults() {
-
-    const list = document.getElementById("results-list");
-
-    if (currentResults.length === 0) {
-
-        list.innerHTML = `
-            <div class="empty">
-                No results found. Try another question.
-            </div>
-        `;
-
-        return;
-    }
-
-    list.innerHTML = currentResults.map((resource, index) => `
-
-        <div class="resource-card">
-
-            <div class="resource-name">
-                ${resource.name}
-            </div>
-
-            <div class="resource-description">
-                - ${resource.description}
-            </div>
-
-            <span class="view-link"
-                onclick="openResource(${index})">
-                View details →
-            </span>
-
+      {screen === "details" && selected && <>
+        <div className="detail">
+          <strong>{selected.name}</strong>
+          <ul>
+            <li>{selected.description}</li>
+            <li>Available locations: {selected.locations.join("; ")}</li>
+            <li>Access instructions: {selected.access}</li>
+          </ul>
         </div>
-
-    `).join("");
-
-}
-
-
-// Open resource details
-
-function openResource(index) {
-
-    const resource = currentResults[index];
-
-    document.getElementById("resource-details").innerHTML = `
-
-        <strong>Resource Name:</strong>
-        ${resource.name}
-
-        <ul>
-            <li>
-                <strong>Description:</strong>
-                ${resource.description}
-            </li>
-
-            <li>
-                <strong>Available location:</strong>
-                ${resource.location}
-            </li>
-
-            <li>
-                <strong>Availability:</strong>
-                ${resource.availability}
-            </li>
-
-            <li>
-                <strong>Access instructions:</strong>
-                ${resource.instructions}
-            </li>
-        </ul>
-
-        <a href="${resource.url}"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="official-link">
-            Official link
-        </a>
-
-        <div class="link-caption">
-            (Link to university resources)
+        <div style={{ textAlign: "center", marginTop: 16 }}>
+          <a href={selected.link} target="_blank" rel="noopener"><button className="light">Official link</button></a>
+          <p className="muted">(link to university resources)</p>
         </div>
-
-    `;
-
-    showScreen("details-screen");
-
+        <div className="bottom"><button className="btn" onClick={() => setScreen("results")}>Back to Results</button></div>
+      </>}
+    </div>
+  );
 }
 
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
 </script>
-
 </body>
 </html>
